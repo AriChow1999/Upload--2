@@ -1,1 +1,7 @@
-[Visit my project]([https://vercel.app](https://upload-2-six.vercel.app/)](https://vercel.com/arichow1999s-projects/upload-2/3ZXykcYwh1sNnQ1sjVbjDusabR1D)](https://upload-2-six.vercel.app/))
+# My Awesome Project
+
+This is a description of my project.
+
+## 🔗 Live Demo
+You can view the live deployment here: 
+👉 **[Visit upload-2-six.vercel.app](https://vercel.app)**
