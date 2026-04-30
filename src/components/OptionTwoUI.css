@@ -1,0 +1,290 @@
+.viewport-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.main-card {
+  width: 100%;
+  max-width: 680px;
+  background: transparent;
+}
+
+.grey-input-wrapper {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 32px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pills-scroll-container {
+  overflow: hidden;
+  padding: 2px 4px;
+}
+
+.pills-inner-flex {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.pills-inner-flex::-webkit-scrollbar {
+  display: none;
+}
+
+.compact-pill {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 5px 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.01);
+}
+
+.mini-icon-box {
+  margin-right: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.icon-folder {
+  color: #f59e0b;
+}
+
+.icon-doc {
+  color: #3b82f6;
+}
+
+.icon-sheet {
+  color: #10b981;
+}
+
+.icon-image {
+  color: #8b5cf6;
+}
+
+.icon-video {
+  color: #ef4444;
+}
+
+.icon-audio {
+  color: #ec4899;
+}
+
+.icon-archive {
+  color: #6b7280;
+}
+
+.icon-code {
+  color: #06b6d4;
+}
+
+.compact-name {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #374151;
+  margin-right: 8px;
+}
+
+.pill-remove {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  display: flex;
+  padding: 0;
+}
+
+.white-inner-container {
+  background-color: #ffffff;
+  border: 1px solid #f3f4f6;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.white-inner-container textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: #1f2937;
+  background: transparent;
+  resize: none;
+  min-height: 40px;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+.white-inner-container textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.bottom-actions {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.actions-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.util-btn {
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  transition: background 0.2s;
+}
+
+.util-btn:hover {
+  background: #f3f4f6;
+}
+
+.util-btn.bordered {
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.mini-dashed-circle {
+  width: 18px;
+  height: 18px;
+  border: 2px dashed #6b7280;
+  border-radius: 50%;
+}
+
+.selection-svg {
+  width: 18px;
+  height: 18px;
+  filter: opacity(0.6);
+  display: block;
+}
+
+/* Dropdown styling */
+
+.gpt-selector-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  background: white;
+  margin-left: 4px;
+}
+
+.gpt-mini-logo {
+  width: 16px;
+  height: 16px;
+}
+
+.gpt-select-menu {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  cursor: pointer;
+  outline: none;
+  padding-right: 4px;
+  appearance: none;
+}
+
+.gpt-selector-wrapper:hover {
+  background-color: #f3f4f6;
+}
+
+.pills-scroll-container {
+  overflow: hidden;
+  padding: 2px;
+}
+
+.pills-inner-flex {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.pills-inner-flex::-webkit-scrollbar {
+  display: none;
+}
+
+/* NEW: Detail Card Style (Replaces Pill) */
+.file-detail-card {
+  position: relative;
+  min-width: 155px;
+  height: 130px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.card-remove-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.card-filename {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.3;
+  margin-top: 4px;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-metadata {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.card-type-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f9fafb;
+  padding: 5px 10px;
+  border-radius: 10px;
+  width: fit-content;
+  border: 1px solid #f3f4f6;
+}
+
+.type-label-text {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #6b7280;
+  letter-spacing: 0.5px;
+}
