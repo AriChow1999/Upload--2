@@ -1,73 +1,29 @@
-# React + TypeScript + Vite
+📂 Document Analysis & Metadata UI
+A high-performance React file upload interface designed for deep metadata extraction. This UI doesn't just "upload" files—it analyzes them in the browser to provide real-time metrics for documents, spreadsheets, and directories.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🛠 Features
+1. Multi-Engine Extraction
+The UI uses specialized libraries to peek into files before they are sent to the server:
 
-Currently, two official plugins are available:
+PDF (.pdf): Uses pdfjs-dist and Y-coordinate grouping to calculate human-readable line counts rather than raw text chunks.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Word (.docx): Integrates mammoth.js for XML-to-text conversion to determine total line numbers.
 
-## React Compiler
+Spreadsheets (.xlsx): Leverages SheetJS to map the active grid range, returning precise Row × Column dimensions.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+2. Folder Intelligence
+Batch Processing: Handles full directory uploads via webkitdirectory.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Recursive Metadata: Automatically calculates the total number of files within an uploaded folder and summarizes the aggregate file size.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+🚀 Installation
+Install the core dependencies:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Bash
+npm install mammoth pdfjs-dist xlsx lucide-react
+💻 Technical Implementation
+PDF Worker
+To ensure the PDF parser works correctly in modern build tools like Vite, the worker is configured via a URL constructor:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
