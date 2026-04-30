@@ -147,11 +147,11 @@ const OptionTwoUI: React.FC = () => {
                 let columns = undefined;
 
                 // Only fetch lines for docs
-                if (category === 'document') {
+                if (ext === 'docx' ||ext==="pdf") {
                     lines = await fetchLineCount(f);
                 }
 
-                if (category === "spreadsheet") {
+                if (ext === "xlsx") {
                     const dimensions = await getExcelDimensions(f);
                     rows = dimensions.rows;
                     columns = dimensions.cols;
