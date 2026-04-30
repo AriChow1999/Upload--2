@@ -211,10 +211,7 @@ const OptionTwoUI: React.FC = () => {
                                                 {item.lines ? `${item.lines} lines` : ""}
                                             </div>
                                             <div className="card-metadata">
-                                                {item.rows ? `${item.rows} rows` : ""}
-                                            </div>
-                                            <div className="card-metadata">
-                                                {item.columns ? `${item.columns} columns` : ""}
+                                                {item.rows ? `${item.rows} rows` : ""}    {item.columns ? `${item.columns} columns` : ""}
                                             </div>
                                             <div className="card-metadata">
                                                 {item.files ? `${item.files} ${item.files == 1 ? "File" : "Files"}` : ""}
