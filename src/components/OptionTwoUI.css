@@ -282,9 +282,8 @@
 }
 
 .type-label-text {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 800;
-  text-transform: uppercase;
   color: #6b7280;
   letter-spacing: 0.5px;
 }
