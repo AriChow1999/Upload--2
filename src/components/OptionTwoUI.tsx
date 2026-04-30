@@ -29,6 +29,7 @@ interface UploadItem {
     rows?: number;
     columns?: number;
     files?: number;
+    ext?:string
 }
 
 const OptionTwoUI: React.FC = () => {
@@ -135,10 +136,11 @@ const OptionTwoUI: React.FC = () => {
 
         if (mode === 'folder') {
             const folderName = files[0].webkitRelativePath.split('/')[0] || "New Folder";
-            newItems.push({ id: crypto.randomUUID(), name: folderName, type: 'folder', files: files.length });
+            newItems.push({ id: crypto.randomUUID(), name: folderName, type: 'folder', files: files.length,ext:"Folder" });
         } else {
             // Use for...of loop to allow awaiting async operations
             for (const f of Array.from(files)) {
+                const ext = f.name.split('.').pop()?.toLowerCase();
                 const category = getCategory(f.name);
                 let lines = undefined;
                 let rows = undefined;
@@ -162,7 +164,8 @@ const OptionTwoUI: React.FC = () => {
                     size: f.size,
                     lines: lines,
                     rows: rows,
-                    columns: columns
+                    columns: columns,
+                    ext:ext
                 });
             }
         }
@@ -221,7 +224,7 @@ const OptionTwoUI: React.FC = () => {
 
                                         <div className="card-type-tag">
                                             <div className="mini-icon-box">{renderIcon(item)}</div>
-                                            <span className="type-label-text">{item.type}</span>
+                                            <span className="type-label-text">{item.ext}</span>
                                         </div>
                                     </div>
                                 ))}
