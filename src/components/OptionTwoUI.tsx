@@ -127,6 +127,11 @@ const OptionTwoUI: React.FC = () => {
         }
     };
 
+        const getCodeLines = async (file: File) => {
+        const text = await file.text();
+        const lines = text.split(/\r?\n/);
+        return lines.length;
+    }
 
     const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>, mode: 'file' | 'folder') => {
         const files = e.target.files;
@@ -155,6 +160,10 @@ const OptionTwoUI: React.FC = () => {
                     const dimensions = await getExcelDimensions(f);
                     rows = dimensions.rows;
                     columns = dimensions.cols;
+                }
+
+                    if (ext === "ts" || ext === "tsx" || ext === "json" || ext === "css" || ext === "html" || ext === "js" || ext === "yaml") {
+                    lines = await getCodeLines(f);
                 }
 
                 newItems.push({
