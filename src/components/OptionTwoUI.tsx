@@ -29,7 +29,7 @@ interface UploadItem {
     rows?: number;
     columns?: number;
     files?: number;
-    ext?:string
+    ext?: string
 }
 
 const OptionTwoUI: React.FC = () => {
@@ -127,7 +127,7 @@ const OptionTwoUI: React.FC = () => {
         }
     };
 
-        const getCodeLines = async (file: File) => {
+    const getCodeLines = async (file: File) => {
         const text = await file.text();
         const lines = text.split(/\r?\n/);
         return lines.length;
@@ -141,7 +141,7 @@ const OptionTwoUI: React.FC = () => {
 
         if (mode === 'folder') {
             const folderName = files[0].webkitRelativePath.split('/')[0] || "New Folder";
-            newItems.push({ id: crypto.randomUUID(), name: folderName, type: 'folder', files: files.length,ext:"Folder" });
+            newItems.push({ id: crypto.randomUUID(), name: folderName, type: 'folder', files: files.length, ext: "Folder" });
         } else {
             // Use for...of loop to allow awaiting async operations
             for (const f of Array.from(files)) {
@@ -152,7 +152,7 @@ const OptionTwoUI: React.FC = () => {
                 let columns = undefined;
 
                 // Only fetch lines for docs
-                if (ext === 'docx' ||ext==="pdf") {
+                if (ext === 'docx' || ext === "pdf") {
                     lines = await fetchLineCount(f);
                 }
 
@@ -162,7 +162,7 @@ const OptionTwoUI: React.FC = () => {
                     columns = dimensions.cols;
                 }
 
-                    if (ext === "ts" || ext === "tsx" || ext === "json" || ext === "css" || ext === "html" || ext === "js" || ext === "yaml") {
+                if (ext === "ts" || ext === "tsx" || ext === "json" || ext === "css" || ext === "html" || ext === "js" || ext === "yaml") {
                     lines = await getCodeLines(f);
                 }
 
@@ -174,7 +174,7 @@ const OptionTwoUI: React.FC = () => {
                     lines: lines,
                     rows: rows,
                     columns: columns,
-                    ext:ext
+                    ext: ext
                 });
             }
         }
@@ -214,7 +214,11 @@ const OptionTwoUI: React.FC = () => {
                                         <div className="card-text-content">
                                             <div className="card-filename">{item.name}</div>
                                             <div className="card-metadata">
-                                                {item.size ? `${(item.size / (1024 * 1024)).toFixed(2)} MB` : ""}
+                                                {item.size ? (
+                                                    (item.size / (1024 * 1024)) >= 0.005
+                                                        ? `${(item.size / (1024 * 1024)).toFixed(2)} MB`
+                                                        : `${(item.size/1024).toFixed(2)} KB`
+                                                ) : ""}
                                             </div>
                                             <div className="card-metadata">
                                                 {item.lines ? `${item.lines} lines` : ""}
