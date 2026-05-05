@@ -36,7 +36,7 @@ const OptionTwoUI: React.FC = () => {
     const [items, setItems] = useState<UploadItem[]>([]);
     const [selectedModel, setSelectedModel] = useState('5.0');
 
-    const getCategory = (fileName: string): FileCategory => {
+    const getCategory = (fileName: string) => {
         const ext = fileName.split('.').pop()?.toLowerCase();
         if (['pdf', 'docx', 'txt', 'md'].includes(ext || '')) return 'document';
         if (['xlsx', 'csv', 'json'].includes(ext || '')) return 'spreadsheet';
